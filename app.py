@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv(r"./Diabetes_prediction.csv")
+df = pd.read_csv(r"./diabetes.csv")
 
 st.markdown("<h1 style='text-align: center; color: #FF9F40;'>Diabetes Prediction App</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>This app predicts whether a patient is diabetic based on their health data.</p>", unsafe_allow_html=True)
@@ -41,8 +41,8 @@ user_data = calc()
 st.subheader('Patient Data Summary')
 st.write(user_data)
 
-x = df.drop(['Diagnosis'], axis=1)
-y = df['Diagnosis']
+x = df.drop(['Outcome'], axis=1)
+y = df['Outcome']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
 progress = st.progress(0)
